@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hierarchical Network Simulation</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Hierarchical Enterprise Network Simulation</h1>
+      <p class="sub">Routing, reliability and security &middot; Computer Networks case study, VIT</p>
+    </div>
+    <div class="status"><span id="conn" class="dot off"></span><span id="connText">connecting</span></div>
+  </header>
+
+  <main>
+    <section class="card map-card">
+      <div class="card-head">
+        <h2>Network map</h2>
+        <div class="legend">
+          <span><i class="sw data"></i>data</span>
+          <span><i class="sw ack"></i>ACK</span>
+          <span><i class="sw lost"></i>lost / blocked</span>
+          <span><i class="sw tamper"></i>tampered</span>
+          <span><i class="sw route"></i>Dijkstra route</span>
+        </div>
+      </div>
+      <div id="cy"></div>
+      <p class="hint">Click a router or link to select it, then use the failure controls. Edge numbers are link delays in ms.</p>
+    </section>
+
+    <aside>
+      <section class="card">
+        <h2>Traffic</h2>
+        <div class="row">
+          <label for="srcSelect">Customer</label>
+          <select id="srcSelect"></select>
+          <button id="sendBtn">Send packet</button>
+        </div>
+        <div class="row">
+          <label for="rate">Auto traffic</label>
+          <input type="range" id="rate" min="0" max="10" step="0.5" value="0">
+          <output id="rateOut">off</output>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Route inspector</h2>
+        <div class="row">
+          <label for="routeSrc">From</label>
+          <select id="routeSrc"></select>
+        </div>
+        <div id="routeOut" class="route-out">-</div>
+      </section>
+
+      <section class="card">
+        <h2>Failures</h2>
+        <div id="selected" class="selected">Nothing selected</div>
+        <div class="row">
+          <button id="failBtn" class="danger" disabled>Fail</button>
+          <button id="restoreBtn" disabled>Restore</button>
+        </div>
+        <div id="faultList" class="faults"></div>
+      </section>
+
+      <section class="card">
+        <h2>Packet loss</h2>
+        <div class="row">
+          <label for="loss">All links</label>
+          <input type="range" id="loss" min="0" max="50" step="1" value="0">
+          <output id="lossOut">0%</output>
+        </div>
+        <div class="row">
+          <button id="linkLossBtn" disabled>Apply to selected link</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Security</h2>
+        <div class="row">
+          <button id="tamperBtn">Tamper with next packet</button>
+        </div>
+        <div class="row">
+          <label for="tamper">Attacker rate</label>
+          <input type="range" id="tamper" min="0" max="100" step="5" value="0">
+          <output id="tamperOut">0%</output>
+        </div>
+        <div id="cipherLine" class="small"></div>
+      </section>
+
+      <section class="card">
+        <h2>Simulation</h2>
+        <div class="row">
+          <label for="speed">Speed</label>
+          <select id="speed">
+            <option value="80">Slow</option>
+            <option value="40" selected>Normal</option>
+            <option value="20">Fast</option>
+          </select>
+          <button id="resetBtn">Reset</button>
+        </div>
+      </section>
+    </aside>
+  </main>
+
+  <section class="tiles" id="tiles"></section>
+
+  <section class="charts">
+    <div class="card"><h2>Delivery latency (ms)</h2><canvas id="chLatency"></canvas></div>
+    <div class="card"><h2>Observed link loss, last 0.5 s (%)</h2><canvas id="chLoss"></canvas></div>
+    <div class="card"><h2>Retransmissions and reroutes</h2><canvas id="chRetx"></canvas></div>
+  </section>
+
+  <section class="card log-card">
+    <div class="card-head">
+      <h2>Event log</h2>
+      <select id="logFilter">
+        <option value="all">All events</option>
+        <option value="problems">Drops, timeouts, failures</option>
+        <option value="security">Security</option>
+        <option value="delivery">Deliveries</option>
+      </select>
+    </div>
+    <div id="log" class="log"></div>
+  </section>
+
+  <script src="/static/vendor/cytoscape.min.js"></script>
+  <script src="/static/vendor/chart.umd.js"></script>
+  <script src="/static/app.js"></script>
+</body>
+</html>
