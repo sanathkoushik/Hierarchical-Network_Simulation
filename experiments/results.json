@@ -1,0 +1,507 @@
+{
+  "seeds": [
+    11,
+    22,
+    33,
+    44,
+    55
+  ],
+  "loss_sweep": [
+    {
+      "loss": 0,
+      "delivery": {
+        "mean": 100.0,
+        "sd": 0.0
+      },
+      "retx_per_pkt": {
+        "mean": 0.0,
+        "sd": 0.0
+      },
+      "latency": {
+        "mean": 9.0,
+        "sd": 0.0
+      },
+      "p95": {
+        "mean": 10.0,
+        "sd": 0.0
+      },
+      "gave_up": {
+        "mean": 0,
+        "sd": 0.0
+      },
+      "dups": {
+        "mean": 0,
+        "sd": 0.0
+      },
+      "hop_loss": {
+        "mean": 0.0,
+        "sd": 0.0
+      }
+    },
+    {
+      "loss": 5,
+      "delivery": {
+        "mean": 100.0,
+        "sd": 0.0
+      },
+      "retx_per_pkt": {
+        "mean": 0.3795,
+        "sd": 0.0267161000147851
+      },
+      "latency": {
+        "mean": 13.113999999999999,
+        "sd": 0.48692145157099004
+      },
+      "p95": {
+        "mean": 35.6,
+        "sd": 1.3416407864998738
+      },
+      "gave_up": {
+        "mean": 0,
+        "sd": 0.0
+      },
+      "dups": {
+        "mean": 73.8,
+        "sd": 9.884331034521253
+      },
+      "hop_loss": {
+        "mean": 5.1933383653996925,
+        "sd": 0.2716429279358948
+      }
+    },
+    {
+      "loss": 10,
+      "delivery": {
+        "mean": 99.8,
+        "sd": 0.2091650066335189
+      },
+      "retx_per_pkt": {
+        "mean": 0.8625,
+        "sd": 0.04667038675648618
+      },
+      "latency": {
+        "mean": 18.22972781199229,
+        "sd": 0.6191083453176752
+      },
+      "p95": {
+        "mean": 59.0,
+        "sd": 2.7386127875258306
+      },
+      "gave_up": {
+        "mean": 0.8,
+        "sd": 0.8366600265340756
+      },
+      "dups": {
+        "mean": 144,
+        "sd": 6.48074069840786
+      },
+      "hop_loss": {
+        "mean": 10.052496481527411,
+        "sd": 0.35083682554726464
+      }
+    },
+    {
+      "loss": 15,
+      "delivery": {
+        "mean": 99.7,
+        "sd": 0.2091650066335189
+      },
+      "retx_per_pkt": {
+        "mean": 1.451,
+        "sd": 0.033100226585327186
+      },
+      "latency": {
+        "mean": 25.48702993665067,
+        "sd": 1.1220340095094088
+      },
+      "p95": {
+        "mean": 81.4,
+        "sd": 9.126883367283709
+      },
+      "gave_up": {
+        "mean": 1.2,
+        "sd": 0.8366600265340756
+      },
+      "dups": {
+        "mean": 203.8,
+        "sd": 11.099549540409287
+      },
+      "hop_loss": {
+        "mean": 14.72620221295554,
+        "sd": 0.2783975744844475
+      }
+    },
+    {
+      "loss": 20,
+      "delivery": {
+        "mean": 98.55,
+        "sd": 0.7786205751198718
+      },
+      "retx_per_pkt": {
+        "mean": 2.1574999999999998,
+        "sd": 0.10257619119464324
+      },
+      "latency": {
+        "mean": 31.353714546750197,
+        "sd": 1.257907658164424
+      },
+      "p95": {
+        "mean": 93.2,
+        "sd": 6.97853852894716
+      },
+      "gave_up": {
+        "mean": 5.8,
+        "sd": 3.1144823004794873
+      },
+      "dups": {
+        "mean": 250.2,
+        "sd": 20.632498636859278
+      },
+      "hop_loss": {
+        "mean": 19.945723531100814,
+        "sd": 0.6389294137611626
+      }
+    },
+    {
+      "loss": 30,
+      "delivery": {
+        "mean": 91.5,
+        "sd": 1.3228756555322954
+      },
+      "retx_per_pkt": {
+        "mean": 3.5365,
+        "sd": 0.12112235549228728
+      },
+      "latency": {
+        "mean": 46.280026408486485,
+        "sd": 0.43431048218488355
+      },
+      "p95": {
+        "mean": 121.4,
+        "sd": 5.366563145999495
+      },
+      "gave_up": {
+        "mean": 34,
+        "sd": 5.291502622129181
+      },
+      "dups": {
+        "mean": 255.4,
+        "sd": 30.038308873836424
+      },
+      "hop_loss": {
+        "mean": 30.036703567895188,
+        "sd": 0.5241882040346998
+      }
+    }
+  ],
+  "failures": [
+    {
+      "element": "link HQ-R1",
+      "inject_at": 200.0,
+      "detected_at": 225.0,
+      "detection_delay": 25.0,
+      "sent": 120,
+      "delivered": 120,
+      "gave_up": 0,
+      "affected_packets": 4,
+      "mean_latency_before": 9.0,
+      "mean_latency_after": 11.875,
+      "mean_latency_affected": 30.5,
+      "customers_rerouted": 4,
+      "reroutes": 4,
+      "retransmissions": 5,
+      "example": {
+        "customer": "C1",
+        "before": [
+          8,
+          [
+            "C1",
+            "B1",
+            "R1",
+            "HQ"
+          ]
+        ],
+        "after": [
+          12,
+          [
+            "C1",
+            "B1",
+            "R1",
+            "R2",
+            "HQ"
+          ]
+        ]
+      },
+      "no_route_customers": []
+    },
+    {
+      "element": "node R1",
+      "inject_at": 200.0,
+      "detected_at": 225.0,
+      "detection_delay": 25.0,
+      "sent": 120,
+      "delivered": 120,
+      "gave_up": 0,
+      "affected_packets": 4,
+      "mean_latency_before": 9.0,
+      "mean_latency_after": 12.875,
+      "mean_latency_affected": 32.5,
+      "customers_rerouted": 4,
+      "reroutes": 4,
+      "retransmissions": 5,
+      "example": {
+        "customer": "C1",
+        "before": [
+          8,
+          [
+            "C1",
+            "B1",
+            "R1",
+            "HQ"
+          ]
+        ],
+        "after": [
+          16,
+          [
+            "C1",
+            "B1",
+            "B2",
+            "R2",
+            "HQ"
+          ]
+        ]
+      },
+      "no_route_customers": []
+    },
+    {
+      "element": "node R2",
+      "inject_at": 200.0,
+      "detected_at": 225.0,
+      "detection_delay": 25.0,
+      "sent": 120,
+      "delivered": 120,
+      "gave_up": 0,
+      "affected_packets": 4,
+      "mean_latency_before": 9.925,
+      "mean_latency_after": 12.0625,
+      "mean_latency_affected": 22.0,
+      "customers_rerouted": 4,
+      "reroutes": 4,
+      "retransmissions": 6,
+      "example": {
+        "customer": "C5",
+        "before": [
+          8,
+          [
+            "C5",
+            "B3",
+            "R2",
+            "HQ"
+          ]
+        ],
+        "after": [
+          13,
+          [
+            "C5",
+            "B3",
+            "R1",
+            "HQ"
+          ]
+        ]
+      },
+      "no_route_customers": []
+    },
+    {
+      "element": "link R1-B1",
+      "inject_at": 200.0,
+      "detected_at": 225.0,
+      "detection_delay": 25.0,
+      "sent": 120,
+      "delivered": 120,
+      "gave_up": 0,
+      "affected_packets": 2,
+      "mean_latency_before": 9.0,
+      "mean_latency_after": 10.5625,
+      "mean_latency_affected": 35.0,
+      "customers_rerouted": 2,
+      "reroutes": 2,
+      "retransmissions": 3,
+      "example": {
+        "customer": "C1",
+        "before": [
+          8,
+          [
+            "C1",
+            "B1",
+            "R1",
+            "HQ"
+          ]
+        ],
+        "after": [
+          12,
+          [
+            "C1",
+            "B1",
+            "B2",
+            "R1",
+            "HQ"
+          ]
+        ]
+      },
+      "no_route_customers": []
+    },
+    {
+      "element": "node HQ",
+      "inject_at": 200.0,
+      "detected_at": 225.0,
+      "detection_delay": 25.0,
+      "sent": 120,
+      "delivered": 39,
+      "gave_up": 81,
+      "affected_packets": 2,
+      "mean_latency_before": 8.974358974358974,
+      "mean_latency_after": null,
+      "mean_latency_affected": null,
+      "customers_rerouted": 0,
+      "reroutes": 0,
+      "retransmissions": 2,
+      "example": null,
+      "no_route_customers": [
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "C8"
+      ]
+    }
+  ],
+  "detection_delay": {
+    "min": 25.0,
+    "max": 49.0,
+    "mean": 37.0
+  },
+  "tamper": [
+    {
+      "tamper_percent": 0,
+      "injected": {
+        "mean": 0,
+        "sd": 0.0
+      },
+      "rejected": {
+        "mean": 0,
+        "sd": 0.0
+      },
+      "not_rejected": {
+        "mean": 0,
+        "sd": 0.0
+      },
+      "delivery": {
+        "mean": 100.0,
+        "sd": 0.0
+      },
+      "retx_per_pkt": {
+        "mean": 0.0,
+        "sd": 0.0
+      }
+    },
+    {
+      "tamper_percent": 10,
+      "injected": {
+        "mean": 72.8,
+        "sd": 4.868264577855234
+      },
+      "rejected": {
+        "mean": 72.8,
+        "sd": 4.868264577855234
+      },
+      "not_rejected": {
+        "mean": 0,
+        "sd": 0.0
+      },
+      "delivery": {
+        "mean": 100.0,
+        "sd": 0.0
+      },
+      "retx_per_pkt": {
+        "mean": 0.24266666666666667,
+        "sd": 0.016227548592850787
+      }
+    },
+    {
+      "tamper_percent": 30,
+      "injected": {
+        "mean": 292.2,
+        "sd": 23.101947969814148
+      },
+      "rejected": {
+        "mean": 292.2,
+        "sd": 23.101947969814148
+      },
+      "not_rejected": {
+        "mean": 0,
+        "sd": 0.0
+      },
+      "delivery": {
+        "mean": 98.13333333333334,
+        "sd": 0.5055250296034356
+      },
+      "retx_per_pkt": {
+        "mean": 0.9553333333333334,
+        "sd": 0.07354514864278194
+      }
+    },
+    {
+      "tamper_percent": 60,
+      "injected": {
+        "mean": 1023,
+        "sd": 24.372115213907882
+      },
+      "rejected": {
+        "mean": 1023,
+        "sd": 24.372115213907882
+      },
+      "not_rejected": {
+        "mean": 0,
+        "sd": 0.0
+      },
+      "delivery": {
+        "mean": 64.8,
+        "sd": 0.6497862896539334
+      },
+      "retx_per_pkt": {
+        "mean": 3.058,
+        "sd": 0.08108979933108465
+      }
+    }
+  ],
+  "payload_check": {
+    "packets": 500,
+    "delivered": 491,
+    "tampered_rejected": 332
+  },
+  "crypto": {
+    "chacha20-poly1305": {
+      "seal_us": 6.353714992292225,
+      "open_us": 4.577235004398972,
+      "overhead_bytes": 16
+    },
+    "aes-gcm": {
+      "seal_us": 6.275620008818805,
+      "open_us": 4.133544990327209,
+      "overhead_bytes": 16
+    }
+  },
+  "combined": {
+    "sent": 300,
+    "delivered": 298,
+    "gave_up": 2,
+    "retransmissions": 451,
+    "reroutes": 3,
+    "tampered_rejected": 120,
+    "delivery_ratio": 99.33333333333333,
+    "avg_latency": 33.6744966442953
+  }
+}

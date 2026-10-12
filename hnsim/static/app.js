@@ -115,6 +115,7 @@
   /* ------------------------------------------------- packet animation */
   let pktCounter = 0;
   function animateHop(ev) {
+    if (document.hidden) return;   // animations stall in background tabs and leave dots behind
     const a = cy.getElementById(ev.src), b = cy.getElementById(ev.dst);
     if (!a.length || !b.length) return;
     const from = a.position(), to = b.position();
@@ -123,6 +124,7 @@
     const node = cy.add({ group: "nodes", data: { id }, position: { x: from.x, y: from.y }, classes: "pkt" });
     node.style("background-color", color);
     if (ev.kind === "ack") node.style({ width: 8, height: 8 });
+    setTimeout(() => { if (node.inside()) node.remove(); }, ev.dur + 1500);  // safety net
 
     if (ev.outcome === "blocked") {
       node.style("background-color", COLORS.bad);
