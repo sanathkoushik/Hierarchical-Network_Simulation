@@ -1,4 +1,404 @@
 {
+  "environment": {
+    "python": "3.11.9",
+    "os": "Windows-10-10.0.26200-SP0",
+    "networkx": "3.6.1",
+    "simpy": "4.1.2",
+    "cryptography": "50.0.0",
+    "fastapi": "0.143.0",
+    "nodes": 15,
+    "edges": 27,
+    "config": {
+      "loss_percent": 0.0,
+      "max_retries": 5,
+      "ack_margin": 8.0,
+      "hello_interval": 25.0,
+      "dead_misses": 2,
+      "retry_wait": 30.0,
+      "slowdown": 40.0,
+      "tamper_percent": 0.0
+    }
+  },
+  "routes": {
+    "normal": {
+      "C1": {
+        "cost": 8,
+        "path": [
+          "C1",
+          "B1",
+          "R1",
+          "HQ"
+        ]
+      },
+      "C2": {
+        "cost": 9,
+        "path": [
+          "C2",
+          "B1",
+          "R1",
+          "HQ"
+        ]
+      },
+      "C3": {
+        "cost": 9,
+        "path": [
+          "C3",
+          "B2",
+          "R1",
+          "HQ"
+        ]
+      },
+      "C4": {
+        "cost": 10,
+        "path": [
+          "C4",
+          "B2",
+          "R1",
+          "HQ"
+        ]
+      },
+      "C5": {
+        "cost": 8,
+        "path": [
+          "C5",
+          "B3",
+          "R2",
+          "HQ"
+        ]
+      },
+      "C6": {
+        "cost": 9,
+        "path": [
+          "C6",
+          "B3",
+          "R2",
+          "HQ"
+        ]
+      },
+      "C7": {
+        "cost": 9,
+        "path": [
+          "C7",
+          "B4",
+          "R2",
+          "HQ"
+        ]
+      },
+      "C8": {
+        "cost": 10,
+        "path": [
+          "C8",
+          "B4",
+          "R2",
+          "HQ"
+        ]
+      }
+    },
+    "link HQ-R1": {
+      "C1": {
+        "cost": 12,
+        "path": [
+          "C1",
+          "B1",
+          "R1",
+          "R2",
+          "HQ"
+        ]
+      },
+      "C2": {
+        "cost": 13,
+        "path": [
+          "C2",
+          "B1",
+          "R1",
+          "R2",
+          "HQ"
+        ]
+      },
+      "C3": {
+        "cost": 13,
+        "path": [
+          "C3",
+          "B2",
+          "R2",
+          "HQ"
+        ]
+      },
+      "C4": {
+        "cost": 14,
+        "path": [
+          "C4",
+          "B2",
+          "R2",
+          "HQ"
+        ]
+      },
+      "C5": {
+        "cost": 8,
+        "path": [
+          "C5",
+          "B3",
+          "R2",
+          "HQ"
+        ]
+      },
+      "C6": {
+        "cost": 9,
+        "path": [
+          "C6",
+          "B3",
+          "R2",
+          "HQ"
+        ]
+      },
+      "C7": {
+        "cost": 9,
+        "path": [
+          "C7",
+          "B4",
+          "R2",
+          "HQ"
+        ]
+      },
+      "C8": {
+        "cost": 10,
+        "path": [
+          "C8",
+          "B4",
+          "R2",
+          "HQ"
+        ]
+      }
+    },
+    "node R1": {
+      "C1": {
+        "cost": 16,
+        "path": [
+          "C1",
+          "B1",
+          "B2",
+          "R2",
+          "HQ"
+        ]
+      },
+      "C2": {
+        "cost": 17,
+        "path": [
+          "C2",
+          "B1",
+          "B2",
+          "R2",
+          "HQ"
+        ]
+      },
+      "C3": {
+        "cost": 13,
+        "path": [
+          "C3",
+          "B2",
+          "R2",
+          "HQ"
+        ]
+      },
+      "C4": {
+        "cost": 14,
+        "path": [
+          "C4",
+          "B2",
+          "R2",
+          "HQ"
+        ]
+      },
+      "C5": {
+        "cost": 8,
+        "path": [
+          "C5",
+          "B3",
+          "R2",
+          "HQ"
+        ]
+      },
+      "C6": {
+        "cost": 9,
+        "path": [
+          "C6",
+          "B3",
+          "R2",
+          "HQ"
+        ]
+      },
+      "C7": {
+        "cost": 9,
+        "path": [
+          "C7",
+          "B4",
+          "R2",
+          "HQ"
+        ]
+      },
+      "C8": {
+        "cost": 10,
+        "path": [
+          "C8",
+          "B4",
+          "R2",
+          "HQ"
+        ]
+      }
+    },
+    "node R2": {
+      "C1": {
+        "cost": 8,
+        "path": [
+          "C1",
+          "B1",
+          "R1",
+          "HQ"
+        ]
+      },
+      "C2": {
+        "cost": 9,
+        "path": [
+          "C2",
+          "B1",
+          "R1",
+          "HQ"
+        ]
+      },
+      "C3": {
+        "cost": 9,
+        "path": [
+          "C3",
+          "B2",
+          "R1",
+          "HQ"
+        ]
+      },
+      "C4": {
+        "cost": 10,
+        "path": [
+          "C4",
+          "B2",
+          "R1",
+          "HQ"
+        ]
+      },
+      "C5": {
+        "cost": 13,
+        "path": [
+          "C5",
+          "B3",
+          "R1",
+          "HQ"
+        ]
+      },
+      "C6": {
+        "cost": 14,
+        "path": [
+          "C6",
+          "B3",
+          "R1",
+          "HQ"
+        ]
+      },
+      "C7": {
+        "cost": 16,
+        "path": [
+          "C7",
+          "B4",
+          "B3",
+          "R1",
+          "HQ"
+        ]
+      },
+      "C8": {
+        "cost": 17,
+        "path": [
+          "C8",
+          "B4",
+          "B3",
+          "R1",
+          "HQ"
+        ]
+      }
+    },
+    "link R1-B1": {
+      "C1": {
+        "cost": 12,
+        "path": [
+          "C1",
+          "B1",
+          "B2",
+          "R1",
+          "HQ"
+        ]
+      },
+      "C2": {
+        "cost": 13,
+        "path": [
+          "C2",
+          "B1",
+          "B2",
+          "R1",
+          "HQ"
+        ]
+      },
+      "C3": {
+        "cost": 9,
+        "path": [
+          "C3",
+          "B2",
+          "R1",
+          "HQ"
+        ]
+      },
+      "C4": {
+        "cost": 10,
+        "path": [
+          "C4",
+          "B2",
+          "R1",
+          "HQ"
+        ]
+      },
+      "C5": {
+        "cost": 8,
+        "path": [
+          "C5",
+          "B3",
+          "R2",
+          "HQ"
+        ]
+      },
+      "C6": {
+        "cost": 9,
+        "path": [
+          "C6",
+          "B3",
+          "R2",
+          "HQ"
+        ]
+      },
+      "C7": {
+        "cost": 9,
+        "path": [
+          "C7",
+          "B4",
+          "R2",
+          "HQ"
+        ]
+      },
+      "C8": {
+        "cost": 10,
+        "path": [
+          "C8",
+          "B4",
+          "R2",
+          "HQ"
+        ]
+      }
+    }
+  },
   "seeds": [
     11,
     22,
@@ -207,6 +607,10 @@
       "mean_latency_before": 9.0,
       "mean_latency_after": 11.875,
       "mean_latency_affected": 30.5,
+      "affected_latency_range": [
+        24.0,
+        37.0
+      ],
       "customers_rerouted": 4,
       "reroutes": 4,
       "retransmissions": 5,
@@ -246,6 +650,10 @@
       "mean_latency_before": 9.0,
       "mean_latency_after": 12.875,
       "mean_latency_affected": 32.5,
+      "affected_latency_range": [
+        24.0,
+        41.0
+      ],
       "customers_rerouted": 4,
       "reroutes": 4,
       "retransmissions": 5,
@@ -285,6 +693,10 @@
       "mean_latency_before": 9.925,
       "mean_latency_after": 12.0625,
       "mean_latency_affected": 22.0,
+      "affected_latency_range": [
+        9.0,
+        47.0
+      ],
       "customers_rerouted": 4,
       "reroutes": 4,
       "retransmissions": 6,
@@ -323,6 +735,10 @@
       "mean_latency_before": 9.0,
       "mean_latency_after": 10.5625,
       "mean_latency_affected": 35.0,
+      "affected_latency_range": [
+        33.0,
+        37.0
+      ],
       "customers_rerouted": 2,
       "reroutes": 2,
       "retransmissions": 3,
@@ -362,6 +778,7 @@
       "mean_latency_before": 8.974358974358974,
       "mean_latency_after": null,
       "mean_latency_affected": null,
+      "affected_latency_range": null,
       "customers_rerouted": 0,
       "reroutes": 0,
       "retransmissions": 2,
@@ -484,13 +901,13 @@
   },
   "crypto": {
     "chacha20-poly1305": {
-      "seal_us": 6.353714992292225,
-      "open_us": 4.577235004398972,
+      "seal_us": 5.886915000155568,
+      "open_us": 4.021570004988462,
       "overhead_bytes": 16
     },
     "aes-gcm": {
-      "seal_us": 6.275620008818805,
-      "open_us": 4.133544990327209,
+      "seal_us": 5.683084996417165,
+      "open_us": 3.827280004043132,
       "overhead_bytes": 16
     }
   },

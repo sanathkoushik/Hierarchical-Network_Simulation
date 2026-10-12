@@ -106,6 +106,9 @@ def failure_case(kind, ident, inject_at=200.0, seed=7):
         "mean_latency_before": lat(before),
         "mean_latency_after": lat(after),
         "mean_latency_affected": lat(affected),
+        "affected_latency_range": ([min(r.delivered_at - r.created for r in affected if r.delivered_at is not None),
+                                    max(r.delivered_at - r.created for r in affected if r.delivered_at is not None)]
+                                   if any(r.delivered_at is not None for r in affected) else None),
         "customers_rerouted": len(changed),
         "reroutes": eng.m["reroutes"],
         "retransmissions": eng.m["retransmissions"],
@@ -196,8 +199,39 @@ def combined():
             "avg_latency": m["avg_latency"]}
 
 
+def route_tables():
+    """Dijkstra routes for every customer: normal, and after each detected failure."""
+    out = {}
+    cases = {"normal": None, "link HQ-R1": ("link", "HQ-R1"), "node R1": ("node", "R1"),
+             "node R2": ("node", "R2"), "link R1-B1": ("link", "R1-B1")}
+    for name, fault in cases.items():
+        eng = Engine(Config(), seed=1)
+        if fault:
+            eng.fail(*fault)
+            eng.advance(200)   # long enough for the detector to remove it
+        out[name] = {c: (lambda r: None if r is None else {"cost": r[0], "path": r[1]})(
+            eng.router.route(c, HQ)) for c in CUSTOMERS}
+    return out
+
+
+def environment():
+    import platform
+    from importlib.metadata import version
+    eng = Engine()
+    return {
+        "python": platform.python_version(), "os": platform.platform(),
+        "networkx": version("networkx"), "simpy": version("simpy"),
+        "cryptography": version("cryptography"), "fastapi": version("fastapi"),
+        "nodes": eng.topology.graph.number_of_nodes(),
+        "edges": eng.topology.graph.number_of_edges(),
+        "config": {k: getattr(eng.cfg, k) for k in vars(eng.cfg)},
+    }
+
+
 def main():
     results = {
+        "environment": environment(),
+        "routes": route_tables(),
         "seeds": SEEDS,
         "loss_sweep": loss_sweep(),
         "failures": [
